@@ -101,32 +101,33 @@ document.addEventListener("DOMContentLoaded", function () {
 
         }
     }, false);
-        
-        let listCount = 0;
-
-    let btn = document.getElementById('listbtn');
     
+    let listCount = 0;
+    
+    
+    let btn = document.getElementById('listbtn');
+    const ul = document.createElement('ul');
+    document.body.appendChild(ul);
+    
+
     function newlist() {
         listCount++;
-        const ul = document.createElement('ul');
         const li = document.createElement('li');
         const litext = document.createTextNode('This is list item' + ' ' + listCount);
-        document.body.appendChild(ul);
-        ul.appendChild(li)
         li.appendChild(litext);
-        li.addEventListener('click', function() {
-            li.style.color = colorchange()
-        })
-    };
-    
-    btn.addEventListener("click", newlist);
-
-    //let ul = document.createElement('ul');
-    
-    li.addEventListener('dblclick', function () {
-        ul.removeChild(li)
+        ul.appendChild(li);
         
-    });
+        
+        li.addEventListener('click', function() {
+            li.style.color = colorchange();
+        });
+        li.addEventListener('dblclick', function () {
+            ul.removeChild(li);
+    });  
+} 
+       
+btn.addEventListener("click", newlist);
+    //let ul = document.createElement('ul');
 
 
 
