@@ -89,12 +89,12 @@ h6.addEventListener('dblclick', function() {
     let headColor = colorchange();
     h6.style.color = headColor
 });
+
+// stops the text from being highlighted after double click. ****
 document.addEventListener('mousedown', function(event) {
     if (event.detail > 1) {
       event.preventDefault();
-      // of course, you still do not know what you prevent here...
-      // You could also check event.ctrlKey/event.shiftKey/event.altKey
-      // to not prevent something useful.
+      
     }
   }, false);    
 
