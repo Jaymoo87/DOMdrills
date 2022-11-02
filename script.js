@@ -92,29 +92,43 @@ document.addEventListener("DOMContentLoaded", function () {
         h6.style.color = headColor
     });
 
-    // stops the text from being highlighted after double click. ****
-    //document.addEventListener('mousedown', function (event) {
-    //  if (event.detail > 1) {
-    //      event.preventDefault();
+    // stops the text from being highlighted after click. ****
+    document.addEventListener('mousedown', function (event) {
+        if (event.detail > 1) {
+            event.preventDefault();
 
-    //   }
-    // }, false);
+        }
+    }, false);
 
     let listCount = 0;
 
     let btn = document.getElementById('listbtn');
 
-
-    btn.addEventListener("click", function () {
+    function newlist() {
         listCount++;
         const ulbtn = document.createElement('ul');
-        const ultext = document.createTextNode('This is list item' + listCount);
+        const ultext = document.createTextNode('This is list item' + ' ' + listCount);
         ulbtn.appendChild(ultext);
         document.body.appendChild(ulbtn);
+    };
+
+    btn.addEventListener("click", newlist);
+
+    let ul = document.createElement('ul');
+
+    ul.addEventListener('click', function () {
+     
+        let headColor = colorchange();
+        ul.style.color = headColor
     });
 
+function removeList (Element) {
+    Element.addEventListener('dblclick', function() {
 
+        ul.removeChild(Element);
+    });
+};
 
-
+    
     //console.log(Math.floor(Math.random() * colors.length));
 });
