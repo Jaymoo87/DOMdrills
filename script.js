@@ -54,14 +54,53 @@ document.addEventListener("DOMContentLoaded", function () {
     let colors = ['DodgerBlue', 'BurlyWood', 'Brown', 'Chocolate',
         'Blue', 'Crimson', 'Cyan', 'DarkRed']
 
-    let h1click = document.getElementsByClassName('h1');
-    let h2click = document.getElementsByClassName('h2');
-    let h3click = document.getElementsByClassName('h3');
-    let h4click = document.getElementsByClassName('h4');
-    let h5click = document.getElementsByClassName('h5');
-    let h6click = document.getElementsByClassName('h6');
+   // let h1click = document.getElementsByClassName('h1');
+   // let h2click = document.getElementsByClassName('h2');
+    //let h3click = document.getElementsByClassName('h3');
+    //let h4click = document.getElementsByClassName('h4');
+    //let h5click = document.getElementsByClassName('h5');
+   // let h6click = document.getElementsByClassName('h6');
 
-function colorchange()
+function colorchange() {
+    let headColor = colors[Math.floor(Math.random() * colors.length)];
+    return headColor;
+}
+h1.addEventListener('dblclick', function() {
+    let headColor = colorchange();
+    h1.style.color = headColor
+});
+h2.addEventListener('dblclick', function() {
+    let headColor = colorchange();
+    h2.style.color = headColor
+});
+h3.addEventListener('dblclick', function() {
+    let headColor = colorchange();
+    h3.style.color = headColor
+});
+h4.addEventListener('dblclick', function() {
+    let headColor = colorchange();
+    h4.style.color = headColor
+});
+h5.addEventListener('dblclick', function() {
+    let headColor = colorchange();
+    h5.style.color = headColor
+});
+h6.addEventListener('dblclick', function() {
+    let headColor = colorchange();
+    h6.style.color = headColor
+});
+document.addEventListener('mousedown', function(event) {
+    if (event.detail > 1) {
+      event.preventDefault();
+      // of course, you still do not know what you prevent here...
+      // You could also check event.ctrlKey/event.shiftKey/event.altKey
+      // to not prevent something useful.
+    }
+  }, false);    
 
-    console.log(Math.floor(Math.random() * colors.length));
+
+
+
+
+//console.log(Math.floor(Math.random() * colors.length));
 });
