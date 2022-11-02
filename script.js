@@ -4,6 +4,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let head = document.createElement('div');
     head.className = 'header-container';
+    document.body.appendChild(head)
+    head.appendChild
 
     let h1 = document.createElement('h1');
     let headtext1 = document.createTextNode('This is an h1');
@@ -43,12 +45,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     document.body.appendChild(head);
-    document.body.appendChild(h1);
-    document.body.appendChild(h2);
-    document.body.appendChild(h3);
-    document.body.appendChild(h4);
-    document.body.appendChild(h5);
-    document.body.appendChild(h6);
+    head.appendChild(h1);
+    head.appendChild(h2);
+    head.appendChild(h3);
+    head.appendChild(h4);
+    head.appendChild(h5);
+    head.appendChild(h6);
 
 
     let colors = ['DodgerBlue', 'BurlyWood', 'Brown', 'Chocolate',
@@ -64,32 +66,32 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // function to change the color of the headers. ***[]
     function colorchange() {
-        let headColor = colors[Math.floor(Math.random() * colors.length)];
+        let headColor = colors [Math.floor(Math.random() * colors.length)];
         return headColor;
     }
     h1.addEventListener('dblclick', function () {
-        let headColor = colorchange();
-        h1.style.color = headColor
+        h1.style.color = colorchange();
+        
     });
     h2.addEventListener('dblclick', function () {
-        let headColor = colorchange();
-        h2.style.color = headColor
+        h2.style.color = colorchange();
+        
     });
     h3.addEventListener('dblclick', function () {
-        let headColor = colorchange();
-        h3.style.color = headColor
+        h3.style.color = colorchange();
+       
     });
     h4.addEventListener('dblclick', function () {
-        let headColor = colorchange();
-        h4.style.color = headColor
+        h4.style.color = colorchange();
+        
     });
     h5.addEventListener('dblclick', function () {
-        let headColor = colorchange();
-        h5.style.color = headColor
+        h5.style.color = colorchange();
+       
     });
     h6.addEventListener('dblclick', function () {
-        let headColor = colorchange();
-        h6.style.color = headColor
+        h6.style.color = colorchange();
+         
     });
 
     // stops the text from being highlighted after click. ****
@@ -99,35 +101,34 @@ document.addEventListener("DOMContentLoaded", function () {
 
         }
     }, false);
-
-    let listCount = 0;
+        
+        let listCount = 0;
 
     let btn = document.getElementById('listbtn');
-
+    
     function newlist() {
         listCount++;
-        const ulbtn = document.createElement('ul');
-        const ultext = document.createTextNode('This is list item' + ' ' + listCount);
-        ulbtn.appendChild(ultext);
-        document.body.appendChild(ulbtn);
+        const ul = document.createElement('ul');
+        const li = document.createElement('li');
+        const litext = document.createTextNode('This is list item' + ' ' + listCount);
+        document.body.appendChild(ul);
+        ul.appendChild(li)
+        li.appendChild(litext);
+        li.addEventListener('click', function() {
+            li.style.color = colorchange()
+        })
     };
-
+    
     btn.addEventListener("click", newlist);
 
-    let ul = document.createElement('ul');
-
-    ul.addEventListener('click', function () {
-     
-        let headColor = colorchange();
-        ul.style.color = headColor
+    //let ul = document.createElement('ul');
+    
+    li.addEventListener('dblclick', function () {
+        ul.removeChild(li)
+        
     });
 
-function removeList (Element) {
-    Element.addEventListener('dblclick', function() {
 
-        ul.removeChild(Element);
-    });
-};
 
     
     //console.log(Math.floor(Math.random() * colors.length));
